@@ -1,0 +1,18 @@
+{
+    "type": "module",
+    "dependencies": {
+        "dotenv": "^16.3.1",
+        "mongodb": "^5.6.0"
+    },
+    "devDependencies": {
+        "esbuild": "^0.18.11",
+        "esbuild-node-tsc": "^2.0.5",
+        "nodemon": "^2.0.22",
+        "typescript": "^5.1.6"
+    },
+    "scripts": {
+        "build": "tsc -noEmit && esbuild ./src/*.ts ./src/*/*.ts ./src/*/*/*.ts  --outdir=./build --platform=node --format=esm",
+        "watch": "tsc -noEmit && esbuild ./src/*.ts ./src/*/*.ts ./src/*/*/*.ts --outdir=./build --platform=node --format=esm --watch",
+        "serve": "nodemon ./build/server.js --"
+    }
+}
